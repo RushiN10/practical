@@ -1,0 +1,20 @@
+Node Create
+
+create(bank:pune{name:"sbi",ifsc:"sbin9008"})
+create(bank1:customer{name:"sameer",contact:99898776})
+
+RelationShip
+
+MATCH(a:pune),(b:customer) WHERE a.name="sbi" AND b.name="sameer" create (a)-[r:family]->(b) RETURN a,b
+
+Set Value
+MATCH(a:pune) WHERE a.name="sbi" SET a.highestscore=87 RETURN a
+
+Remove any value
+MATCH(a:pune) WHERE a.name="sbi" REMOVE a.highestscore RETURN a
+
+Delete Single Node
+MATCH(a:pune) WHERE a.name="sbi" DETACH DELETE a
+
+Delete All node
+MATCH (n) DETACH DELETE n
